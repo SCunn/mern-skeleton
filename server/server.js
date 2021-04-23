@@ -18,7 +18,7 @@ app.listen(port, function onStart(err) {
     console.info('Server started on %s.', port)
 })
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/mernSimpleSetup'
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/mern-skeleton'
 MongoClient.connect(url, (err, db)=> {
     console.log("Connected successfully to mongodb server")
     db.close()

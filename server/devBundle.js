@@ -5,7 +5,7 @@ import webpackConfig from './../webpack.config.client.js'
 
 const compile = (app) => {
     if(process.env.NODE_ENV == "development") {
-        const complier = webpack(webpackConfig)
+        const compiler = webpack(webpackConfig)
         const middleware = webpackMiddleware(compiler, {
             publicPath: webpackConfig.output.publicPath
         })
