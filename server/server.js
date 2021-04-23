@@ -1,4 +1,5 @@
 import express from 'express'
+import { MongoClient } from 'mongodb'
 import devBundle from './devBundle' // for development mode, comment out in production
 import path from 'path'
 import template from './../template'
@@ -15,6 +16,12 @@ app.listen(port, function onStart(err) {
         console.log(err)
     }
     console.info('Server started on %s.', port)
+})
+
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/mernSimpleSetup'
+MongoClient.connect(url, (err, db)=> {
+    console.log("Connected successfully to mongodb server")
+    db.close()
 })
 
 app.get('/', (req, res) => {
